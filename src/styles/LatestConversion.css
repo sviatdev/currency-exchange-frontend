@@ -1,4 +1,3 @@
-/* General container styling */
 .latest-conversion-container {
     width: 100%;
     max-width: 600px;
@@ -10,7 +9,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* Heading */
 .latest-conversion-container h2 {
     text-align: center;
     color: #333;
@@ -18,7 +16,6 @@
     margin-bottom: 20px;
 }
 
-/* Button styling */
 .latest-conversion-container button {
     padding: 10px 20px;
     border-radius: 5px;
@@ -30,7 +27,6 @@
     color: white;
 }
 
-/* Input fields */
 .latest-conversion-container input {
     padding: 10px;
     border: 1px solid #ccc;
@@ -39,7 +35,6 @@
     margin-bottom: 10px;
 }
 
-/* Conversion result styling */
 .conversion-result {
     background-color: #fff;
     margin-top: 20px;
@@ -48,26 +43,22 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Conversion result text */
 .conversion-result p {
     font-size: 16px;
     color: #333;
     margin: 5px 0;
 }
 
-/* Error message */
 .error-message {
     color: red;
     margin-top: 10px;
 }
 
-/* Loading message */
 .loading-message {
     color: #007bff;
     font-size: 16px;
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
     .latest-conversion-container {
         padding: 15px;

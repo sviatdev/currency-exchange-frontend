@@ -1,54 +1,50 @@
 import React, { useState } from 'react';
-import '../styles/SupportedCodes.css'; // Import the CSS file
+import '../styles/SupportedCodes.css';
 import { fetchSupportedCodes } from '../api/supportedCodes';
-import { disableCurrency } from '../api/disableCurrency'; // Function to disable a currency
-import { enableCurrency } from '../api/enableCurrency'; // Function to enable a currency
+import { disableCurrency } from '../api/disableCurrency';
+import { enableCurrency } from '../api/enableCurrency';
 
 const SupportedCodes = () => {
     const [codes, setCodes] = useState([]);
     const [error, setError] = useState(null);
-    const [showCodes, setShowCodes] = useState(false); // State to track visibility
-    const [loading, setLoading] = useState(false); // State to track loading
+    const [showCodes, setShowCodes] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    // Fetch the supported codes from the backend API
     const fetchCodes = async () => {
         try {
-            setLoading(true); // Set loading to true
+            setLoading(true);
             const data = await fetchSupportedCodes();
-            setCodes(data); // Set the array of codes
-            setShowCodes(true); // Show the codes after fetching
-            setLoading(false); // Set loading to false
+            setCodes(data);
+            setShowCodes(true);
+            setLoading(false);
         } catch (err) {
             setError(err.message);
-            setShowCodes(false); // Hide codes if there is an error
+            setShowCodes(false);
             setLoading(false);
         }
     };
 
-    // Function to handle button toggle
     const handleToggle = () => {
         if (!showCodes && codes.length === 0) {
-            fetchCodes(); // Fetch data only if it hasn't been fetched yet
+            fetchCodes();
         } else {
-            setShowCodes(!showCodes); // Toggle visibility
+            setShowCodes(!showCodes);
         }
     };
 
-    // Function to disable a currency and refresh the list
     const handleDisableCurrency = async (baseCode) => {
         try {
-            await disableCurrency(baseCode); // Call your API to disable the currency
-            fetchCodes(); // Re-fetch the codes after disabling a currency
+            await disableCurrency(baseCode);
+            fetchCodes();
         } catch (err) {
             setError(err.message);
         }
     };
 
-    // Function to enable a currency and refresh the list
     const handleEnableCurrency = async (baseCode) => {
         try {
-            await enableCurrency(baseCode); // Call your API to enable the currency
-            fetchCodes(); // Re-fetch the codes after enabling a currency
+            await enableCurrency(baseCode);
+            fetchCodes();
         } catch (err) {
             setError(err.message);
         }
@@ -58,18 +54,14 @@ const SupportedCodes = () => {
         <div className="supported-codes-container">
             <h2>Supported Currency Codes</h2>
 
-            {/* Button to trigger API call and toggle the data */}
             <button className="show-hide-button" onClick={handleToggle}>
                 {showCodes ? 'Hide' : 'Show'}
             </button>
 
-            {/* Conditionally show error message */}
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
-            {/* Conditionally show loading spinner */}
             {loading && <p>Loading...</p>}
 
-            {/* Conditionally render the list of supported codes */}
             {showCodes && !error && !loading && (
                 <ul className="currency-list">
                     {codes.map((code) => (

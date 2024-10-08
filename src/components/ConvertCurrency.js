@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/ConvertCurrency.css'; // Import the CSS file
+import '../styles/ConvertCurrency.css';
 import { convertCurrency } from '../api/convertCurrency';
 
 const ConvertCurrency = () => {
@@ -26,7 +26,6 @@ const ConvertCurrency = () => {
         <div className="convert-currency-container">
             <h2>Convert Currency</h2>
 
-            {/* Input for base currency */}
             <input
                 type="text"
                 placeholder="Base currency code (e.g., USD)"
@@ -34,7 +33,6 @@ const ConvertCurrency = () => {
                 onChange={(e) => setBaseCurrency(e.target.value.toUpperCase())}
             />
 
-            {/* Input for target currency */}
             <input
                 type="text"
                 placeholder="Target currency code (e.g., EUR)"
@@ -42,18 +40,14 @@ const ConvertCurrency = () => {
                 onChange={(e) => setTargetCurrency(e.target.value.toUpperCase())}
             />
 
-            {/* Button to perform conversion */}
             <button onClick={handleConvertCurrency}>
                 Convert
             </button>
 
-            {/* Show error message if there's an error */}
             {error && <p className="error-message">{error}</p>}
 
-            {/* Show loading message while fetching */}
             {loading && <p className="loading-message">Converting...</p>}
 
-            {/* Conditionally render conversion result */}
             {conversionResult && (
                 <div className="conversion-result">
                     <h3>Conversion Result</h3>

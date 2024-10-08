@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/EnableDisableCurrency.css'; // Import the CSS file
+import '../styles/EnableDisableCurrency.css';
 import { enableCurrency } from '../api/enableCurrency';
 
 const EnableCurrency = () => {
@@ -25,7 +25,6 @@ const EnableCurrency = () => {
         <div className="enable-disable-currency-container">
             <h2>Enable Currency</h2>
 
-            {/* Input for currency code */}
             <input
                 type="text"
                 placeholder="Currency code (e.g., USD)"
@@ -33,18 +32,14 @@ const EnableCurrency = () => {
                 onChange={(e) => setCurrencyCode(e.target.value.toUpperCase())}
             />
 
-            {/* Button to enable currency */}
             <button className="enable-currency-button" onClick={handleEnableCurrency}>
                 Enable Currency
             </button>
 
-            {/* Show error message */}
             {error && <p className="error-message">{error}</p>}
 
-            {/* Show loading message */}
             {loading && <p className="loading-message">Enabling currency...</p>}
 
-            {/* Show result message */}
             {resultMessage && <p className="result-message">{resultMessage}</p>}
         </div>
     );

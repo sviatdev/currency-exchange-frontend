@@ -6,7 +6,7 @@ import ConvertCurrencyWithAmount from './components/ConvertCurrencyWithAmount';
 import EnableCurrency from './components/EnableCurrency';
 import DisableCurrency from './components/DisableCurrency';
 import './styles/App.css';
-import logo from './assets/currency-exchange-logo.png'; // Import the logo
+import logo from './assets/currency-exchange-logo.png';
 
 const App = () => {
     const [activeTab, setActiveTab] = useState('supportedCodes');
@@ -32,14 +32,11 @@ const App = () => {
 
     return (
         <div className="app-container">
-            {/* Header section with logo and navigation */}
             <header className="app-header">
-                {/* Logo */}
                 <div className="logo-container">
                     <img src={logo} alt="Currency Exchange Logo" className="app-logo" />
                 </div>
 
-                {/* Navigation tabs */}
                 <nav className="tabs">
                     <button
                         className={activeTab === 'supportedCodes' ? 'active-tab' : ''}
@@ -63,7 +60,7 @@ const App = () => {
                         className={activeTab === 'convertCurrencyWithAmount' ? 'active-tab' : ''}
                         onClick={() => setActiveTab('convertCurrencyWithAmount')}
                     >
-                        Convert with Amount
+                        Convert With Amount
                     </button>
                     <button
                         className={activeTab === 'enableCurrency' ? 'active-tab' : ''}
@@ -80,7 +77,6 @@ const App = () => {
                 </nav>
             </header>
 
-            {/* Tab content */}
             <main className="tab-content">
                 {renderTabContent()}
             </main>
