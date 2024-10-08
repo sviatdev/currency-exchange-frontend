@@ -5,15 +5,16 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  display: flex;
 }
 
 .logo-container {
-  margin-right: 20px;
+  margin-right: 9px;
 }
 
 .app-logo {
-  width: 80px;
-  height: auto;
+  width: 29px;
+  height: 92%;
   border-radius: 50%;
 }
 
@@ -26,7 +27,6 @@
 
 .tabs {
   display: flex;
-  flex-grow: 1;
   justify-content: space-evenly;
 }
 
