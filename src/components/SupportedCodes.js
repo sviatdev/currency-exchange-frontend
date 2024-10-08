@@ -60,7 +60,7 @@ const SupportedCodes = () => {
 
             {/* Button to trigger API call and toggle the data */}
             <button className="show-hide-button" onClick={handleToggle}>
-                {showCodes ? 'Hide Supported Codes' : 'Show Supported Codes'}
+                {showCodes ? 'Hide' : 'Show'}
             </button>
 
             {/* Conditionally show error message */}

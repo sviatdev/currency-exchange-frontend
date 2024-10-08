@@ -1,0 +1,61 @@
+.app-header {
+  background-color: #2c3e50;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.logo-container {
+  margin-right: 20px; /* Space between logo and tabs */
+}
+
+.app-logo {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+}
+
+
+.app-container {
+  font-family: Arial, sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+}
+
+.tabs button {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  color: #bdc3c7;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+}
+
+.tabs button.active-tab {
+  background-color: #3498db;
+  color: white;
+}
+
+.tabs button:hover {
+  background-color: #34495e;
+  color: white;
+}
+/* Content area styling */
+/*.tab-content {*/
+/*  background-color: #f9f9f9;*/
+/*  padding: 20px;*/
+/*  border-radius: 10px;*/
+/*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+
