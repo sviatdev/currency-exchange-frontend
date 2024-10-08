@@ -1,13 +1,24 @@
-import './App.css';
-import CurrencyConverter from "./component/CurrencyConverter";
+import React from 'react';
+import SupportedCodes from './component/SupportedCodes';
+import LatestConversion from './component/LatestConversion';
+import ConvertCurrency from './component/ConvertCurrency';
+import EnableCurrency from './component/EnableCurrency';
+import DisableCurrency from './component/DisableCurrency';
+import ConvertCurrencyWithAmount from "./component/ConvertCurrencyWithAmount";
 
-function App() {
-  return (
-    <div>
-      <h1>Currency Converter</h1>
-      <CurrencyConverter />
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div>
+            <h1>Currency Operations</h1>
+
+            <SupportedCodes />
+            <LatestConversion />
+            <ConvertCurrency />
+            <ConvertCurrencyWithAmount />
+            <EnableCurrency />
+            <DisableCurrency />
+        </div>
+    );
+};
 
 export default App;
