@@ -29,21 +29,21 @@ const ConvertCurrencyWithAmount = () => {
 
             <input
                 type="text"
-                placeholder="Base currency code (e.g., USD)"
+                placeholder="From code (e.g., USD)"
                 value={baseCurrency}
                 onChange={(e) => setBaseCurrency(e.target.value.toUpperCase())}
             />
 
             <input
                 type="text"
-                placeholder="Target currency code (e.g., EUR)"
+                placeholder="To code (e.g., EUR)"
                 value={targetCurrency}
                 onChange={(e) => setTargetCurrency(e.target.value.toUpperCase())}
             />
 
             <input
                 type="text"
-                placeholder="Enter amount"
+                placeholder="Amount"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
             />

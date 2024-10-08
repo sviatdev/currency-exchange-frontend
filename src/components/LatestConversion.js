@@ -27,7 +27,7 @@ const LatestConversion = () => {
 
             <input
                 type="text"
-                placeholder="Enter currency code (e.g., USD)"
+                placeholder="Currency code (e.g., USD)"
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value.toUpperCase())}
             />
