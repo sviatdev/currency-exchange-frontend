@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import '../styles/SupportedCodes.css'; // Import the CSS file
+import { fetchSupportedCodes } from '../api/supportedCodes';
 import { disableCurrency } from '../api/disableCurrency'; // Function to disable a currency
-import { enableCurrency } from '../api/enableCurrency';
-import {fetchSupportedCodes} from "../api/supportedCodes"; // Function to enable a currency
+import { enableCurrency } from '../api/enableCurrency'; // Function to enable a currency
 
 const SupportedCodes = () => {
     const [codes, setCodes] = useState([]);
@@ -37,7 +38,7 @@ const SupportedCodes = () => {
     const handleDisableCurrency = async (baseCode) => {
         try {
             await disableCurrency(baseCode); // Call your API to disable the currency
-            await fetchCodes(); // Re-fetch the codes after disabling a currency
+            fetchCodes(); // Re-fetch the codes after disabling a currency
         } catch (err) {
             setError(err.message);
         }
@@ -47,18 +48,18 @@ const SupportedCodes = () => {
     const handleEnableCurrency = async (baseCode) => {
         try {
             await enableCurrency(baseCode); // Call your API to enable the currency
-            await fetchCodes(); // Re-fetch the codes after enabling a currency
+            fetchCodes(); // Re-fetch the codes after enabling a currency
         } catch (err) {
             setError(err.message);
         }
     };
 
     return (
-        <div>
+        <div className="supported-codes-container">
             <h2>Supported Currency Codes</h2>
 
             {/* Button to trigger API call and toggle the data */}
-            <button onClick={handleToggle}>
+            <button className="show-hide-button" onClick={handleToggle}>
                 {showCodes ? 'Hide Supported Codes' : 'Show Supported Codes'}
             </button>
 
@@ -70,18 +71,25 @@ const SupportedCodes = () => {
 
             {/* Conditionally render the list of supported codes */}
             {showCodes && !error && !loading && (
-                <ul>
+                <ul className="currency-list">
                     {codes.map((code) => (
                         <li key={code.id}>
-                            <strong>{code.baseCode}</strong>: {code.description}
-                            (Active: {code.active ? 'Yes' : 'No'})
-                            {/* Button to disable the currency */}
+                            <span className="currency-description">
+                                <strong>{code.baseCode}</strong>: {code.description}
+                                (Active: {code.active ? 'Yes' : 'No'})
+                            </span>
                             {code.active ? (
-                                <button onClick={() => handleDisableCurrency(code.baseCode)}>
+                                <button
+                                    className="disable-button"
+                                    onClick={() => handleDisableCurrency(code.baseCode)}
+                                >
                                     Disable
                                 </button>
                             ) : (
-                                <button onClick={() => handleEnableCurrency(code.baseCode)}>
+                                <button
+                                    className="enable-button"
+                                    onClick={() => handleEnableCurrency(code.baseCode)}
+                                >
                                     Enable
                                 </button>
                             )}

@@ -1,45 +1,66 @@
 import React, { useState } from 'react';
+import '../styles/ConvertCurrency.css'; // Import the CSS file
 import { convertCurrency } from '../api/convertCurrency';
 
 const ConvertCurrency = () => {
-    const [result, setResult] = useState(null);
+    const [baseCurrency, setBaseCurrency] = useState('');
+    const [targetCurrency, setTargetCurrency] = useState('');
+    const [conversionResult, setConversionResult] = useState(null);
     const [error, setError] = useState(null);
-    const [baseCode, setBaseCode] = useState('');
-    const [targetCode, setTargetCode] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const handleConvert = async () => {
-        const currencyRegex = /^[A-Z]{3}$/; // Regex to validate 3-letter currency code
-
-        if (!currencyRegex.test(baseCode) || !currencyRegex.test(targetCode)) {
-            setError('Currency codes must be 3 letters (e.g., USD, EUR).');
-            return;
-        }
-
+    const handleConvertCurrency = async () => {
+        setLoading(true);
+        setError(null);
         try {
-            const data = await convertCurrency(baseCode, targetCode);
-            setResult(data);
+            const data = await convertCurrency(baseCurrency, targetCurrency);
+            setConversionResult(data);
+            setLoading(false);
         } catch (err) {
             setError(err.message);
+            setLoading(false);
         }
     };
 
     return (
-        <div>
+        <div className="convert-currency-container">
+            <h2>Convert Currency</h2>
+
+            {/* Input for base currency */}
             <input
                 type="text"
-                placeholder="Base currency (e.g. USD)"
-                value={baseCode}
-                onChange={(e) => setBaseCode(e.target.value.toUpperCase())} // Ensure uppercase input
+                placeholder="Base currency code (e.g., USD)"
+                value={baseCurrency}
+                onChange={(e) => setBaseCurrency(e.target.value.toUpperCase())}
             />
+
+            {/* Input for target currency */}
             <input
                 type="text"
-                placeholder="Target currency (e.g. EUR)"
-                value={targetCode}
-                onChange={(e) => setTargetCode(e.target.value.toUpperCase())} // Ensure uppercase input
+                placeholder="Target currency code (e.g., EUR)"
+                value={targetCurrency}
+                onChange={(e) => setTargetCurrency(e.target.value.toUpperCase())}
             />
-            <button onClick={handleConvert}>Convert Currency</button>
-            {error && <p style={{color: 'red'}}>{error}</p>}
-            {result && <p>{JSON.stringify(result)}</p>}
+
+            {/* Button to perform conversion */}
+            <button onClick={handleConvertCurrency}>
+                Convert
+            </button>
+
+            {/* Show error message if there's an error */}
+            {error && <p className="error-message">{error}</p>}
+
+            {/* Show loading message while fetching */}
+            {loading && <p className="loading-message">Converting...</p>}
+
+            {/* Conditionally render conversion result */}
+            {conversionResult && (
+                <div className="conversion-result">
+                    <h3>Conversion Result</h3>
+                    <p>{baseCurrency} to {targetCurrency}:</p>
+                    <p>Conversion Rate: {conversionResult.conversion_rate}</p>
+                </div>
+            )}
         </div>
     );
 };

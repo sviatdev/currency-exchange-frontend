@@ -1,0 +1,86 @@
+/* General container styling */
+.supported-codes-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Heading */
+.supported-codes-container h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.supported-codes-container button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* Show/Hide button */
+.show-hide-button {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Disable button */
+.disable-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Enable button */
+.enable-button {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Currency list */
+.currency-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.currency-list li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Currency description styling */
+.currency-description {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .supported-codes-container {
+        padding: 15px;
+    }
+
+    .currency-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .currency-list li button {
+        margin-top: 10px;
+    }
+}

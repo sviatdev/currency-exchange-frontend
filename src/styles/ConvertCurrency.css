@@ -1,0 +1,80 @@
+/* Container styling */
+.convert-currency-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Heading */
+.convert-currency-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+.convert-currency-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Button styling */
+.convert-currency-container button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.convert-currency-container button:hover {
+    background-color: #218838;
+}
+
+/* Conversion result */
+.conversion-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Conversion result text */
+.conversion-result p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Error message */
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Loading message */
+.loading-message {
+    color: #28a745;
+    font-size: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .convert-currency-container {
+        padding: 15px;
+    }
+}
