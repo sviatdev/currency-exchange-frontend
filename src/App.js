@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import SupportedCodes from './components/SupportedCodes';
-import LatestConversion from './components/LatestConversion';
-import ConvertCurrency from './components/ConvertCurrency';
-import ConvertCurrencyWithAmount from './components/ConvertCurrencyWithAmount';
-import EnableCurrency from './components/EnableCurrency';
-import DisableCurrency from './components/DisableCurrency';
+import SupportedCodes from './components/conversion/SupportedCodes';
+import LatestConversion from './components/conversion/LatestConversion';
+import ConvertCurrency from './components/conversion/ConvertCurrency';
+import ConvertCurrencyWithAmount from './components/conversion/ConvertCurrencyWithAmount';
+import EnableCurrency from './components/conversion/EnableCurrency';
+import DisableCurrency from './components/conversion/DisableCurrency';
 import './styles/App.css';
 import logo from './assets/currency-exchange-logo.png';
+import Statistic from "./components/statistic/statistic";
 
 const App = () => {
     const [activeTab, setActiveTab] = useState('supportedCodes');
@@ -25,6 +26,8 @@ const App = () => {
                 return <EnableCurrency />;
             case 'disableCurrency':
                 return <DisableCurrency />;
+            case 'averageStatistic':
+                return <Statistic />
             default:
                 return <SupportedCodes />;
         }
@@ -74,6 +77,12 @@ const App = () => {
                     >
                         Disable Currency
                     </button>
+                    <button
+                        className={activeTab === 'averageStatistic' ? 'active-tab' : ''}
+                        onClick={() => setActiveTab('averageStatistic')}
+                    >
+                        Statistic
+                    </button>
                 </nav>
             </header>
 
@@ -81,7 +90,7 @@ const App = () => {
                 {renderTabContent()}
             </main>
         </div>
-);
+    );
 };
 
 export default App;

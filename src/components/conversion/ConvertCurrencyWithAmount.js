@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/ConvertCurrencyWithAmount.css';
-import { convertCurrencyWithAmount } from '../api/convertCurrencyWithAmount';
+import '../../styles/ConvertCurrencyWithAmount.css';
+import { convertCurrencyWithAmount } from '../../api/conversion/convertCurrencyWithAmount';
 
 const ConvertCurrencyWithAmount = () => {
     const [baseCurrency, setBaseCurrency] = useState('');

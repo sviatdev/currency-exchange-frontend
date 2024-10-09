@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../styles/SupportedCodes.css';
-import { fetchSupportedCodes } from '../api/supportedCodes';
-import { disableCurrency } from '../api/disableCurrency';
-import { enableCurrency } from '../api/enableCurrency';
+import '../../styles/SupportedCodes.css';
+import { fetchSupportedCodes } from '../../api/conversion/supportedCodes';
+import { disableCurrency } from '../../api/conversion/disableCurrency';
+import { enableCurrency } from '../../api/conversion/enableCurrency';
 
 const SupportedCodes = () => {
     const [codes, setCodes] = useState([]);

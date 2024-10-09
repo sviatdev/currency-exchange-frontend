@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/EnableDisableCurrency.css';
-import { disableCurrency } from '../api/disableCurrency';
+import '../../styles/EnableDisableCurrency.css';
+import { disableCurrency } from '../../api/conversion/disableCurrency';
 
 const DisableCurrency = () => {
     const [currencyCode, setCurrencyCode] = useState('');

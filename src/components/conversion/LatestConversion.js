@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/LatestConversion.css';
-import { latestConversion } from '../api/latestConversion';
+import '../../styles/LatestConversion.css';
+import { latestConversion } from '../../api/conversion/latestConversion';
 
 const LatestConversion = () => {
     const [currency, setCurrency] = useState('');
